@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillRack Tracker App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SkillRack Progress Tracker</h1>
+
+    </header>
+
+
+    <div class="tutorial" id="tutorial">
+      <p>Login to SkillRack → Profile → Enter Password → Click "View" → Copy the URL</p>
+    </div>
+
+
+    <div class="input-section" id="input-section">
+      <input type="text" id="url-input" placeholder="Enter your SkillRack profile URL" />
+      <button id="submit-btn">Get Points</button>
+    </div>
+
+
+    <div class="loading-message" id="loading-message" style="display: none;">
+      Calculating points, please wait...
+    </div>
+
+
+    <div class="results" id="results" style="display: none;">
+      <h2>Performance Overview</h2>
+      <p><strong>Name:</strong> <span id="name">N/A</span></p>
+      //To be Filled
+      <p><strong>Total Points:</strong> <span id="total-points">0</span></p>
+
+      <button id="detailed-analysis-btn">Detailed Analysis</button>
+
+      <div id="detailed-analysis" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Language</th>
+              <th>Programs Solved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C</td><td id="c-programs">0</td></tr>
+            <tr><td>Python</td><td id="python-programs">0</td></tr>
+            <tr><td>Java</td><td id="java-programs">0</td></tr>
+            <tr><td>CPP23</td><td id="cpp-programs">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button id="logout-btn">Logout</button>
+      <button id="copy-btn">Copy Results</button>
+    </div>
+
+    <footer>
+      <p>Made with ❤️ by <a href="https://balaharish.netlify.app/" target="_blank">Someone</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
