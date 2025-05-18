@@ -6,8 +6,6 @@ window.addEventListener('load', () => {
   if (storedUrl) {
 
     document.getElementById('url-input').style.display = 'none';
-    document.getElementById('submit-btn').style.display = 'none';
-    document.getElementById('tutorial').style.display = 'none';
 
     document.getElementById('loading-message').style.display = 'block';
 
@@ -17,12 +15,6 @@ window.addEventListener('load', () => {
 
 
 document.getElementById('submit-btn').addEventListener('click', async () => {
-  const url = document.getElementById('url-input').value.trim();
-  if (!url) return alert('Please enter your SkillRack profile URL.');
-
-  document.getElementById('loading-message').style.display = 'block';
-
-
   localStorage.setItem('url', url);
 
 
@@ -42,22 +34,10 @@ document.getElementById('submit-btn').addEventListener('click', async () => {
 
 async function fetchPoints(url) {
   try {
-    const res = await fetch('http://localhost:3000/api/scrape', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
-    });
-
-    const data = await res.json();
-    document.getElementById('loading-message').style.display = 'none';
-
-    if (data.error) return alert(data.error);
-
-
+  
     // To be Filled
     saveDataToExcel(data);
   } catch (err) {
-    document.getElementById('loading-message').style.display = 'none';
     alert('Failed to fetch data. Please try again.');
   }
 }
@@ -90,8 +70,6 @@ document.getElementById('logout-btn').addEventListener('click', () => {
 
 
 document.getElementById('copy-btn').addEventListener('click', () => {
-  const resultText = document.getElementById('results').innerText;
-  navigator.clipboard.writeText(resultText)
     .then(() => alert('Copied to clipboard!'))
     .catch(() => alert('Failed to copy.'));
 });
@@ -100,8 +78,7 @@ document.getElementById('copy-btn').addEventListener('click', () => {
 function loadExcelFromLocalStorage() {
   const fileBase64 = localStorage.getItem('excelFile');
   if (fileBase64) {
-    const excelFile = new Uint8Array(atob(fileBase64).split("").map(c => c.charCodeAt(0)));
-    const workbook = XLSX.read(excelFile, { type: 'array' });
+
     const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
 
     //To be Filled
