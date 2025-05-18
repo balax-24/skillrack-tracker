@@ -1,7 +1,6 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
 const cors = require('cors');
-const fs = require('fs');
 const path = require('path');
 
 const app = express();
@@ -16,7 +15,7 @@ app.post('/api/scrape', async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
+ 
     await page.goto(url, { waitUntil: 'networkidle0' });
 
     const result = await page.evaluate(() => {
@@ -32,12 +31,7 @@ app.post('/api/scrape', async (req, res) => {
       };
 
       const getRank = () => {
-        const rankElement = document.querySelector('.ui.five.small.statistics .statistic .label');
-        if (rankElement && rankElement.textContent.trim() === 'RANK') {
-          const rankValue = rankElement.parentElement.querySelector('.value');
-          return rankValue ? rankValue.textContent.trim() : 'N/A';
-        }
-        return 'N/A';
+        // To ve Filled;
       };
 
       //To be Filled
@@ -45,24 +39,11 @@ app.post('/api/scrape', async (req, res) => {
       const details = {
         //To be Fileld };
 
-      const total = Object.values(details).reduce((sum, item) => sum + item.points, 0);
-
-      const analysis = {
-        'C': c,
-        'Python3': python,
-        'Java': java,
-        'CPP23': cpp,
+      
       };
 
       return {
-        name,
-        department,
-        rank,
-        bronze,
-        certificates,
-        total,
-        details,
-        analysis
+       // To be FIlled;
       };
     });
 
