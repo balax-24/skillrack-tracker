@@ -47,7 +47,7 @@ A simple yet powerful web app to calculate your **SkillRack points** using your 
 <div align="center">
 
 Made with ❤️ by [Balaharish](https://balaharish.netlify.app)  
-🔗 GitHub: [github.com/Balaharish](https://github.com/Balaharish)
+🔗 GitHub: [Balax-24](https://github.com/balax-24)
 
 </div>
 
