@@ -42,4 +42,12 @@ A simple yet powerful web app to calculate your **SkillRack points** using your 
 
 ---
 
-<p align="center">Made with ❤️ by <strong>Balaharish</strong></p>
+## 👤 Author
+
+<div align="center">
+
+Made with ❤️ by [Balaharish](https://balaharish.netlify.app)  
+🔗 GitHub: [github.com/Balaharish](https://github.com/Balaharish)
+
+</div>
+
